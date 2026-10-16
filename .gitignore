@@ -1,0 +1,20 @@
+# Composer / PHPUnit
+/vendor/
+composer.lock
+.phpunit.result.cache
+
+# PHP-CS-Fixer
+php-cs-fixer-v3.phar
+.php-cs-fixer.cache
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# MELCloud diagnostic export (may contain account and device data)
+/melcloud_context.json

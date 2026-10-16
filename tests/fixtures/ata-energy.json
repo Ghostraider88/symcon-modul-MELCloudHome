@@ -1,0 +1,21 @@
+{
+    "measureData":  [
+                        {
+                            "type":  "cumulative_energy_consumed_since_last_upload",
+                            "values":  [
+                                           {
+                                               "timestamp":  "2020-01-02T09:00:00Z",
+                                               "value":  1200
+                                           },
+                                           {
+                                               "timestamp":  "2020-01-02T10:00:00Z",
+                                               "value":  1800
+                                           },
+                                           {
+                                               "timestamp":  "2020-01-02T11:00:00Z",
+                                               "value":  800
+                                           }
+                                       ]
+                        }
+                    ]
+}

@@ -1,0 +1,74 @@
+{
+    "elements": [
+        {
+            "type": "ValidationTextBox",
+            "name": "Email",
+            "caption": "E-Mail (MELCloud Home)"
+        },
+        {
+            "type": "PasswordTextBox",
+            "name": "Password",
+            "caption": "Passwort"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "UpdateInterval",
+            "caption": "Status-Aktualisierung (Sekunden, min. 60)",
+            "minimum": 60,
+            "suffix": "s"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "EnergyInterval",
+            "caption": "Energie-Aktualisierung (Minuten, min. 30)",
+            "minimum": 30,
+            "suffix": "min"
+        },
+        {
+            "type": "NumberSpinner",
+            "name": "OutdoorTemperatureInterval",
+            "caption": "Außentemperatur-Aktualisierung (Minuten, min. 30)",
+            "minimum": 30,
+            "suffix": "min"
+        },
+        {
+            "type": "CheckBox",
+            "name": "EnableLiveSync",
+            "caption": "Optionalen Live-Sync verwenden"
+        }
+    ],
+    "actions": [
+        {
+            "type": "Button",
+            "caption": "Login testen",
+            "onClick": "MELC_TestLogin($id);"
+        },
+        {
+            "type": "Button",
+            "caption": "Alle Daten abrufen",
+            "onClick": "MELC_FetchAll($id);"
+        },
+        {
+            "type": "Button",
+            "caption": "API-Diagnose ausführen",
+            "onClick": "MELC_DiagnoseApi($id);"
+        }
+    ],
+    "status": [
+        {
+            "code": 102,
+            "icon": "active",
+            "caption": "Verbunden"
+        },
+        {
+            "code": 104,
+            "icon": "inactive",
+            "caption": "Zugangsdaten fehlen"
+        },
+        {
+            "code": 201,
+            "icon": "error",
+            "caption": "Verbindungs-/Anmeldefehler"
+        }
+    ]
+}

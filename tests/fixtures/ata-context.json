@@ -1,0 +1,77 @@
+{
+    "buildings":  [
+                      {
+                          "airToAirUnits":  [
+                                                {
+                                                    "id":  "123456789012345",
+                                                    "givenDisplayName":  "Example ATA Unit",
+                                                    "isConnected":  true,
+                                                    "rssi":  -55,
+                                                    "timeZone":  "UTC",
+                                                    "capabilities":  {
+                                                                         "numberOfFanSpeeds":  3,
+                                                                         "hasHalfDegreeIncrements":  true,
+                                                                         "hasAutomaticFanSpeed":  true,
+                                                                         "hasSwing":  true,
+                                                                         "hasAirDirection":  true,
+                                                                         "hasCoolOperationMode":  true,
+                                                                         "hasHeatOperationMode":  true,
+                                                                         "hasAutoOperationMode":  true,
+                                                                         "hasDryOperationMode":  false
+                                                                     },
+                                                    "frostProtection":  {
+                                                                            "enabled":  true,
+                                                                            "active":  false,
+                                                                            "min":  8,
+                                                                            "max":  12
+                                                                        },
+                                                    "overheatProtection":  null,
+                                                    "holidayMode":  {
+                                                                        "enabled":  false,
+                                                                        "active":  false,
+                                                                        "startDate":  null,
+                                                                        "endDate":  null
+                                                                    },
+                                                    "settings":  [
+                                                                     {
+                                                                         "name":  "Power",
+                                                                         "value":  "true"
+                                                                     },
+                                                                     {
+                                                                         "name":  "OperationMode",
+                                                                         "value":  "Cool"
+                                                                     },
+                                                                     {
+                                                                         "name":  "SetTemperature",
+                                                                         "value":  "21.5"
+                                                                     },
+                                                                     {
+                                                                         "name":  "RoomTemperature",
+                                                                         "value":  "21.0"
+                                                                     },
+                                                                     {
+                                                                         "name":  "SetFanSpeed",
+                                                                         "value":  "Low"
+                                                                     },
+                                                                     {
+                                                                         "name":  "ActualFanSpeed",
+                                                                         "value":  "Low"
+                                                                     },
+                                                                     {
+                                                                         "name":  "ErrorCode",
+                                                                         "value":  ""
+                                                                     },
+                                                                     {
+                                                                         "name":  "InStandbyMode",
+                                                                         "value":  "false"
+                                                                     },
+                                                                     {
+                                                                         "name":  "IsInError",
+                                                                         "value":  "false"
+                                                                     }
+                                                                 ]
+                                                }
+                                            ]
+                      }
+                  ]
+}

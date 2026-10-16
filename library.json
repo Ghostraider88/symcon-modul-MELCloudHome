@@ -1,0 +1,12 @@
+{
+    "id": "{4A5EAAC8-ACB1-4B3C-92CA-000051102F8D}",
+    "name": "MELCloud Home Klima",
+    "author": "Ghostraider88",
+    "url": "https://github.com/Ghostraider88/symcon-modul-MELCloudHome",
+    "version": "1.0",
+    "build": 39,
+    "date": 1792108800,
+    "compatibility": {
+        "version": "8.1"
+    }
+}
