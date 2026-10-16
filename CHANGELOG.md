@@ -1,6 +1,6 @@
 # Changelog
 
-## Build 39 - 2026-10-16
+## v1.0.0 (Symcon Library 1.0, Build 39) - 2026-10-16
 - Connection/Klimagerät: WLAN-Signal aus der `rssi`-Telemetrie statt aus dem nicht mehr
   aktualisierten `/context`-Feld gelesen. Separater 30-Minuten-Poll mit einstündigem UTC-Fenster;
   Messwert und letzter echter Messzeitpunkt bleiben bei leeren Antworten oder Fehlern erhalten.

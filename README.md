@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/Symcon%20Version-8.1%20%3E-green.svg)](https://www.symcon.de/forum/threads/30857-IP-Symcon-5-1-%28Stable%29-Changelog)
+[![Release](https://img.shields.io/badge/Release-v1.0.0-orange.svg)](https://github.com/Ghostraider88/symcon-modul-MELCloudHome/releases/tag/v1.0.0) [![Symcon](https://img.shields.io/badge/Symcon-8.1%2B-green.svg)](https://www.symcon.de/)
 
 # MELCloud Home Klima
 
@@ -16,9 +16,9 @@ Lüfter, Lamellen) gehen direkt an die Cloud.
 > [`andrew-blake/melcloudhome`](https://github.com/andrew-blake/melcloudhome) (MIT-Lizenz) –
 > übernommen wurde dabei nur das Wissen über API-Endpunkte/Parameter, kein Code.
 
-**Status:** Beta. Geplant ist die Einreichung im offiziellen
-[IP-Symcon Module Store](https://www.symcon.de/de/module-store/) (zunächst Beta-Kanal,
-später Stable nach Symcon-Review).
+**Release:** `v1.0.0` (**Symcon Library 1.0, Build 39**). Diese stabile Version ist
+für die Veröffentlichung auf GitHub vorbereitet. Die Einreichung im offiziellen
+[IP-Symcon Module Store](https://www.symcon.de/de/module-store/) steht noch aus.
 
 ## Inhaltsverzeichnis
 
