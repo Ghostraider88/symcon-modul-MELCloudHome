@@ -16,10 +16,6 @@ Lüfter, Lamellen) gehen direkt an die Cloud.
 > [`andrew-blake/melcloudhome`](https://github.com/andrew-blake/melcloudhome) (MIT-Lizenz) –
 > übernommen wurde dabei nur das Wissen über API-Endpunkte/Parameter, kein Code.
 
-**Release:** `v1.0.0` (**Symcon Library 1.0, Build 39**). Diese stabile Version ist
-für die Veröffentlichung auf GitHub vorbereitet. Die Einreichung im offiziellen
-[IP-Symcon Module Store](https://www.symcon.de/de/module-store/) steht noch aus.
-
 ## Inhaltsverzeichnis
 
 1. [Module](#1-module)
