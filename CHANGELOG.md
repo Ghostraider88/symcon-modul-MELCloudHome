@@ -1,5 +1,10 @@
 # Changelog
 
+## Build 40 - 2026-10-21
+- Klimagerät: Dynamische Standarddarstellungen für Geräteeigenschaften und Solltemperatur
+  werden über `RegisterVariable*` aktualisiert. Benutzerdefinierte Darstellungen bleiben
+  dadurch unangetastet.
+
 ## v1.0.0 (Symcon Library 1.0, Build 39) - 2026-10-16
 - Connection/Klimagerät: WLAN-Signal aus der `rssi`-Telemetrie statt aus dem nicht mehr
   aktualisierten `/context`-Feld gelesen. Separater 30-Minuten-Poll mit einstündigem UTC-Fenster;

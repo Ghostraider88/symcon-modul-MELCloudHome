@@ -138,16 +138,21 @@ class MELCloudKlimageraet extends IPSModuleStrict
         }
         $modeChanged = false;
         if (array_key_exists('OperationMode', $buffer) && $buffer['OperationMode'] !== null) {
-            $this->SetValue('Mode', $this->apiToInt(self::MODE_MAP, (string) $buffer['OperationMode'], 0));
-            $modeChanged = true;
+            $mode = $this->apiToInt(self::MODE_MAP, (string) $buffer['OperationMode'], 0);
+            $modeChanged = $mode !== (int) $this->GetValue('Mode');
+            $this->SetValue('Mode', $mode);
         }
+        $capabilitiesChanged = false;
         if (array_key_exists('Capabilities', $buffer) && is_array($buffer['Capabilities'])) {
-            $this->WriteAttributeString('Capabilities', (string) json_encode($buffer['Capabilities']));
-            $this->applyCapabilityPresentations();
-            $modeChanged = true; // Bereich anhand der (ggf. neuen) Capabilities neu berechnen
+            $capabilities = json_encode($buffer['Capabilities']);
+            if (is_string($capabilities) && $capabilities !== $this->ReadAttributeString('Capabilities')) {
+                $this->WriteAttributeString('Capabilities', $capabilities);
+                $this->registerCapabilityPresentations();
+                $capabilitiesChanged = true;
+            }
         }
-        if ($modeChanged) {
-            $this->applyTemperatureRange((int) $this->GetValue('Mode'));
+        if ($modeChanged || $capabilitiesChanged) {
+            $this->registerTemperaturePresentation((int) $this->GetValue('Mode'));
         }
         if (array_key_exists('SetTemperature', $buffer) && is_numeric($buffer['SetTemperature'])) {
             $this->SetValue('SetTemperature', (float) $buffer['SetTemperature']);
@@ -247,7 +252,7 @@ class MELCloudKlimageraet extends IPSModuleStrict
                     return;
                 }
                 $this->SetValue('Mode', (int) $Value);
-                $this->applyTemperatureRange((int) $Value);
+                $this->registerTemperaturePresentation((int) $Value);
                 $this->queueControl(['power' => (bool) $this->GetValue('Power'), 'operationMode' => $api]);
                 break;
 
@@ -533,21 +538,50 @@ class MELCloudKlimageraet extends IPSModuleStrict
     }
 
     /**
-     * Aktualisiert MIN/MAX des Solltemperatur-Schiebereglers für den aktuellen Modus.
+     * Aktualisiert die Standarddarstellung des Solltemperatur-Schiebereglers.
+     * Eine benutzerdefinierte Darstellung bleibt in der Hoheit des Benutzers.
      */
-    private function applyTemperatureRange(int $mode): void
+    private function registerTemperaturePresentation(int $mode): void
     {
         [$min, $max] = $this->temperatureRangeForMode($mode);
-        IPS_SetVariableCustomPresentation($this->GetIDForIdent('SetTemperature'), $this->temperaturePresentation($min, $max));
+        $this->RegisterVariableFloat(
+            'SetTemperature',
+            $this->Translate('Target temperature'),
+            $this->temperaturePresentation($min, $max),
+            3
+        );
     }
 
-    private function applyCapabilityPresentations(): void
+    /**
+     * Aktualisiert die Standarddarstellungen anhand der Geräteeigenschaften.
+     * Benutzerdefinierte Darstellungen werden nicht verändert.
+     */
+    private function registerCapabilityPresentations(): void
     {
-        IPS_SetVariableCustomPresentation($this->GetIDForIdent('Mode'), $this->modePresentation());
-        IPS_SetVariableCustomPresentation($this->GetIDForIdent('FanSpeed'), $this->fanSpeedPresentation());
-        IPS_SetVariableCustomPresentation($this->GetIDForIdent('VaneVertical'), $this->vaneVerticalPresentation());
-        IPS_SetVariableCustomPresentation($this->GetIDForIdent('VaneHorizontal'), $this->vaneHorizontalPresentation());
-        $this->applyTemperatureRange((int) $this->GetValue('Mode'));
+        $this->RegisterVariableInteger(
+            'Mode',
+            $this->Translate('Mode'),
+            $this->modePresentation(),
+            2
+        );
+        $this->RegisterVariableInteger(
+            'FanSpeed',
+            $this->Translate('Fan speed'),
+            $this->fanSpeedPresentation(),
+            4
+        );
+        $this->RegisterVariableInteger(
+            'VaneVertical',
+            $this->Translate('Vane vertical'),
+            $this->vaneVerticalPresentation(),
+            5
+        );
+        $this->RegisterVariableInteger(
+            'VaneHorizontal',
+            $this->Translate('Vane horizontal'),
+            $this->vaneHorizontalPresentation(),
+            6
+        );
     }
 
     /** @return array<string,mixed> */
